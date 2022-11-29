@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="application" />
+        <module name="pdipa-it" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="app" target="11" />
+      <module name="bom" target="11" />
+      <module name="common" target="11" />
+      <module name="coverage" target="11" />
+      <module name="gatewayboms" target="11" />
+      <module name="gatewaypdip" target="11" />
+      <module name="gatewaypss" target="11" />
+      <module name="pdipa-it" target="11" />
+      <module name="prnumber" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="app" options="-parameters" />
+      <module name="application" options="-parameters" />
+      <module name="bom" options="-parameters" />
+      <module name="common" options="-parameters" />
+      <module name="coverage" options="-parameters" />
+      <module name="gatewayboms" options="-parameters" />
+      <module name="gatewaypdip" options="-parameters" />
+      <module name="gatewaypss" options="-parameters" />
+      <module name="pdipa-it" options="-parameters" />
+      <module name="prnumber" options="-parameters" />
+    </option>
+  </component>
+</project>
