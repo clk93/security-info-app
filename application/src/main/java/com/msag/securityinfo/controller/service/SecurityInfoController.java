@@ -1,6 +1,6 @@
 package com.msag.securityinfo.controller.service;
 
-import com.msag.securityinfo.controller.data.SecurityInfoGeneralNewsResponseDTO;
+import com.msag.securityinfo.controller.data.SecurityInfoResponseDTO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -27,13 +27,13 @@ public class SecurityInfoController {
     @Operation(summary = "Can be used to fetch general security info data")
     @ResponseStatus(HttpStatus.OK)
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "The request of security info data was completely", content = @Content(mediaType = "application/json", schema = @Schema(implementation = SecurityInfoGeneralNewsResponseDTO.class))),
+            @ApiResponse(responseCode = "200", description = "The request of security info data was completely", content = @Content(mediaType = "application/json", schema = @Schema(implementation = SecurityInfoResponseDTO.class))),
             @ApiResponse(responseCode = "400", description = "There are one or more validation errors within the request"),
             @ApiResponse(responseCode = "500", description = "An unexpected error has occurred.")
     })
-    public ResponseEntity<SecurityInfoGeneralNewsResponseDTO> getGeneralNews(){
+    public ResponseEntity<SecurityInfoResponseDTO> getGeneralNews(){
 
-        return ResponseEntity.status(HttpStatus.OK).body(SecurityInfoGeneralNewsResponseDTO.builder().build());
+        return ResponseEntity.status(HttpStatus.OK).body(SecurityInfoResponseDTO.builder().build());
 
     }
 

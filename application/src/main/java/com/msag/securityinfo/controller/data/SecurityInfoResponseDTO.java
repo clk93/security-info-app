@@ -5,5 +5,5 @@ import lombok.Data;
 
 @Builder
 @Data
-public class SecurityInfoGeneralNewsResponseDTO {
+public class SecurityInfoResponseDTO {
 }
