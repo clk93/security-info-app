@@ -9,6 +9,12 @@ import com.msag.securityinfo.generalnews.exception.SecurityInfoException;
 @FunctionalInterface
 public interface GeneralNewsService {
 
+    /**
+     * Get Security info news
+     *
+     * @return SecurityInfoData {@link SecurityInfoData} Result containing details of security info
+     * @throws SecurityInfoException {@link SecurityInfoException} Exception during fetch of Security Info data
+     */
     SecurityInfoData getSecurityInfoNews() throws SecurityInfoException;
 
 }

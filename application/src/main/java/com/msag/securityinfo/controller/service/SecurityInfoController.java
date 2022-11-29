@@ -1,6 +1,10 @@
 package com.msag.securityinfo.controller.service;
 
 import com.msag.securityinfo.controller.data.SecurityInfoResponseDTO;
+import com.msag.securityinfo.controller.utils.SecurityInfoMapper;
+import com.msag.securityinfo.generalnews.data.SecurityInfoData;
+import com.msag.securityinfo.generalnews.exception.SecurityInfoException;
+import com.msag.securityinfo.generalnews.service.GeneralNewsService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -16,12 +20,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Objects;
+
 @Tag(name = "Security-Info API")
 @RequestMapping("/api/v1/securityInfo")
 @RestController
 @RequiredArgsConstructor
 @Slf4j
 public class SecurityInfoController {
+    private final GeneralNewsService generalNewsService;
 
     @GetMapping("generalInfo")
     @Operation(summary = "Can be used to fetch general security info data")
@@ -31,10 +38,27 @@ public class SecurityInfoController {
             @ApiResponse(responseCode = "400", description = "There are one or more validation errors within the request"),
             @ApiResponse(responseCode = "500", description = "An unexpected error has occurred.")
     })
-    public ResponseEntity<SecurityInfoResponseDTO> getGeneralNews(){
+    public ResponseEntity<SecurityInfoResponseDTO> getSecurityInfos(){
+        try {
+            log.info("[SecurityInfoController:getSecurityInfos] Start to fetch security infos");
+            final SecurityInfoData securityInfoData = this.generalNewsService.getSecurityInfoNews();
+            log.info("[SecurityInfoController:getSecurityInfos] Finished to fetch security infos: {}", securityInfoData);
 
-        return ResponseEntity.status(HttpStatus.OK).body(SecurityInfoResponseDTO.builder().build());
+            if(Objects.isNull(securityInfoData)){
+                log.error("[SecurityInfoController:getSecurityInfos] No Data could be fetched");
+                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(SecurityInfoResponseDTO.builder().message("No Data available, please contact your administrator").build());
+            }
 
+            final SecurityInfoResponseDTO result = SecurityInfoMapper.mapDTO(securityInfoData);
+            result.setMessage("success");
+            return ResponseEntity.status(HttpStatus.OK).body(result);
+        } catch (SecurityInfoException e) {
+            log.error("[SecurityInfoController:getSecurityInfos] Error during request security infos: {}", e.getMessage(), e);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(SecurityInfoResponseDTO.builder().message("An error occurred, please contact your administrator").build());
+        } catch (Exception e){
+            log.error("[SecurityInfoController:getSecurityInfos] Error during fetch security infos: {}", e.getMessage(), e);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(SecurityInfoResponseDTO.builder().message("An error occurred, please contact your administrator").build());
+        }
     }
 
 }
