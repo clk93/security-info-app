@@ -1,4 +1,4 @@
-package com.msag.securityinfo.gateway.configuration;
+package com.msag.securityinfo.common.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.client.RestTemplateBuilder;

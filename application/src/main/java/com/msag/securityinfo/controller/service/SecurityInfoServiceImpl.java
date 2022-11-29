@@ -2,9 +2,10 @@ package com.msag.securityinfo.controller.service;
 
 import com.msag.securityinfo.common.exception.GeneralNewsException;
 import com.msag.securityinfo.common.exception.SecurityInfoException;
-import com.msag.securityinfo.common.exception.VideoNewsException;
+import com.msag.securityinfo.controller.data.internal.CategoryInfo;
 import com.msag.securityinfo.controller.data.internal.SecurityInfoData;
 import com.msag.securityinfo.controller.data.internal.SecurityInfoNews;
+import com.msag.securityinfo.controller.utils.CategoryUtil;
 import com.msag.securityinfo.gateway.generalnews.service.GeneralNewsService;
 import com.msag.securityinfo.gateway.videonews.service.VideoNewsService;
 import lombok.AllArgsConstructor;
@@ -14,13 +15,12 @@ import org.springframework.stereotype.Service;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Map;
 
 @AllArgsConstructor
 @Service
 @Slf4j
 public class SecurityInfoServiceImpl implements SecurityInfoService {
-
     private final GeneralNewsService generalNewsService;
 
     private final VideoNewsService videoNewsService;
@@ -31,7 +31,8 @@ public class SecurityInfoServiceImpl implements SecurityInfoService {
         final List<SecurityInfoNews> generalNews;
         try {
             generalNews = this.generalNewsService.getGeneralNews();
-            Collections.sort(generalNews, Comparator.comparing(SecurityInfoNews::getDate));
+            this.includeCategoryIcon(generalNews);
+            Collections.sort(generalNews, Comparator.comparing(SecurityInfoNews::getDate).reversed());
         } catch (GeneralNewsException e) {
             throw new SecurityInfoException(e.getMessage(), e);
         }
@@ -40,5 +41,15 @@ public class SecurityInfoServiceImpl implements SecurityInfoService {
         return SecurityInfoData.builder()
                 .infoNews(generalNews)
                 .build();
+    }
+
+    private void includeCategoryIcon(List<SecurityInfoNews> generalNews) {
+        final Map<String, String> categoryUrlMap = CategoryUtil.getStaticCategoryNameIconMap();
+        generalNews.forEach(currentGeneralNews -> {
+            CategoryInfo currentCategory = currentGeneralNews.getCategory();
+            final String iconUrl = categoryUrlMap.get(currentCategory.getName());
+            currentCategory.setIconUrl(iconUrl);
+        });
+
     }
 }

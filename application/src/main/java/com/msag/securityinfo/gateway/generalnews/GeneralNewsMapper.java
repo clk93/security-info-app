@@ -6,7 +6,6 @@ import com.msag.securityinfo.controller.data.internal.SecurityInfoNews;
 import com.msag.securityinfo.gateway.generalnews.data.GeneralNewsResponseDTO;
 import com.msag.securityinfo.gateway.generalnews.data.ImageDTO;
 import org.springframework.util.CollectionUtils;
-import org.springframework.util.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +21,7 @@ public final class GeneralNewsMapper {
         return SecurityInfoNews.builder()
                 .title(source.getHeader())
                 .date(source.getPubDate())
-                .category(CategoryInfo.builder().category(source.getCategory()).build())
+                .category(CategoryInfo.builder().name(source.getCategory()).build())
                 .shortDescription(source.getSubheader())
                 .imageUrl(GeneralNewsMapper.getImageUrl(source.getImages()))
                 .infoDetail(GeneralNewsMapper.getGeneralNews(source))

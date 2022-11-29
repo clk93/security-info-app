@@ -29,7 +29,7 @@ import java.time.format.DateTimeFormatter;
 public class ApplicationConfig
 {
     private static final String DATE_FORMAT = "yyyy-MM-dd";
-    private static final String DATE_TIME_FORMAT = "yyyy-MM-dd'T'HH:mm:ss";
+    private static final String DATE_TIME_FORMAT = "yyyy-MM-dd'T'HH:mm:ssZ";
 
     @Bean
     public Jackson2ObjectMapperBuilderCustomizer jsonCustomizer() {

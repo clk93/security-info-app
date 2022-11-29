@@ -28,7 +28,7 @@ public final class SecurityInfoMapper {
                 .date(source.getDate())
                 .shortDescription(source.getShortDescription())
                 .category(CategoryInfoDTO.builder()
-                        .category(source.getCategory().getCategory())
+                        .category(source.getCategory().getName())
                         .iconUrl(source.getCategory().getIconUrl())
                         .build())
                 .imageUrl(source.getImageUrl())

@@ -29,7 +29,7 @@ import java.util.Objects;
 public class SecurityInfoController {
     private final SecurityInfoService securityInfoService;
 
-    @GetMapping("generalInfo")
+    @GetMapping()
     @Operation(summary = "Can be used to fetch general security info data")
     @ResponseStatus(HttpStatus.OK)
     @ApiResponses(value = {
@@ -39,9 +39,9 @@ public class SecurityInfoController {
     })
     public ResponseEntity<SecurityInfoResponseDTO> getSecurityInfos(){
         try {
-            log.info("[SecurityInfoController:getSecurityInfos] Start to fetch security infos");
+            log.debug("[SecurityInfoController:getSecurityInfos] Start to fetch security infos");
             final SecurityInfoData securityInfoData = this.securityInfoService.getSecurityInfoNews();
-            log.info("[SecurityInfoController:getSecurityInfos] Finished to fetch security infos: {}", securityInfoData);
+            log.debug("[SecurityInfoController:getSecurityInfos] Finished to fetch security infos: {}", securityInfoData);
 
             if(Objects.isNull(securityInfoData)){
                 log.error("[SecurityInfoController:getSecurityInfos] No Data could be fetched");

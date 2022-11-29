@@ -6,6 +6,6 @@ import lombok.Data;
 @Builder
 @Data
 public class CategoryInfo {
-    private final String category;
+    private final String name;
     private String iconUrl;
 }
