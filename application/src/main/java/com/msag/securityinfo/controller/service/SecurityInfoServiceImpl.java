@@ -37,6 +37,8 @@ public class SecurityInfoServiceImpl implements SecurityInfoService {
             throw new SecurityInfoException(e.getMessage(), e);
         }
 
+        //ToDO: fetch video news and combine
+
         log.debug("[SecurityInfoServiceImpl:getSecurityInfoNews] Finished to get security info news");
         return SecurityInfoData.builder()
                 .infoNews(generalNews)
