@@ -3,13 +3,13 @@ management.endpoints:
  health.show-details: "always"
 
 com.msag.securityInfo:
- generalNews:
-  url: "https://news-api-78bda.web.app/general-news"
+ gateway:
   userName: "aspirant"
-  pwd: ${GENERAL_NEWS_PWD}
- videoNews:
-  url: "https://news-api-78bda.web.app/video-news"
-  userName: "aspirant"
-  pwd: ${VIDEO_NEWS_PWD}
+  pwd: ${NEWS_PWD}
+  generalNews:
+   url: "https://news-api-78bda.web.app/general-news"
+  videoNews:
+   url: "https://news-api-78bda.web.app/video-news"
+
 
 

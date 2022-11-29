@@ -1,11 +1,11 @@
 package com.msag.securityinfo.controller.utils;
 
-import com.msag.securityinfo.controller.data.CategoryInfoDTO;
-import com.msag.securityinfo.controller.data.SecurityInfoDetailDTO;
-import com.msag.securityinfo.controller.data.SecurityInfoNewsDTO;
-import com.msag.securityinfo.controller.data.SecurityInfoResponseDTO;
-import com.msag.securityinfo.generalnews.data.SecurityInfoData;
-import com.msag.securityinfo.generalnews.data.SecurityInfoNews;
+import com.msag.securityinfo.controller.data.internal.SecurityInfoData;
+import com.msag.securityinfo.controller.data.internal.SecurityInfoNews;
+import com.msag.securityinfo.controller.data.response.CategoryInfoDTO;
+import com.msag.securityinfo.controller.data.response.SecurityInfoDetailDTO;
+import com.msag.securityinfo.controller.data.response.SecurityInfoNewsDTO;
+import com.msag.securityinfo.controller.data.response.SecurityInfoResponseDTO;
 
 import java.util.stream.Collectors;
 
@@ -15,17 +15,10 @@ public final class SecurityInfoMapper {
     }
 
     public static SecurityInfoResponseDTO mapDTO(final SecurityInfoData source){
-
         return SecurityInfoResponseDTO.builder()
                 .infoNews(source.getInfoNews().stream()
                         .map(SecurityInfoMapper::mapInfoNewsDTO)
                         .collect(Collectors.toList()))
-                .detailInfo(SecurityInfoDetailDTO.builder()
-                        .title(source.getInfoDetail().getTitle())
-                        .date(source.getInfoDetail().getDate())
-                        .shortDescription(source.getInfoDetail().getShortDescription())
-                        .text(source.getInfoDetail().getText())
-                        .build())
                 .build();
     }
 
@@ -37,6 +30,11 @@ public final class SecurityInfoMapper {
                 .category(CategoryInfoDTO.builder()
                         .category(source.getCategory().getCategory())
                         .iconUrl(source.getCategory().getIconUrl())
+                        .build())
+                .imageUrl(source.getImageUrl())
+                .detailInfo(SecurityInfoDetailDTO.builder()
+                        .text(source.getInfoDetail().getText())
+                        .imageUrls(source.getInfoDetail().getImageUrls())
                         .build())
                 .build();
     }

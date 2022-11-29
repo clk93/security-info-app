@@ -1,4 +1,4 @@
-package com.msag.securityinfo.config;
+package com.msag.securityinfo.common.config;
 
 import com.fasterxml.jackson.core.json.JsonReadFeature;
 import com.fasterxml.jackson.databind.DeserializationFeature;

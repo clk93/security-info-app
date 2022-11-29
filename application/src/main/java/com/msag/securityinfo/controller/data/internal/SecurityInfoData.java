@@ -1,4 +1,4 @@
-package com.msag.securityinfo.generalnews.data;
+package com.msag.securityinfo.controller.data.internal;
 
 import lombok.Builder;
 import lombok.Data;
@@ -9,6 +9,4 @@ import java.util.List;
 @Data
 public class SecurityInfoData {
     private final List<SecurityInfoNews> infoNews;
-    private final SecurityInfoDetail infoDetail;
-
 }

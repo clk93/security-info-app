@@ -1,10 +1,9 @@
 package com.msag.securityinfo.controller.service;
 
-import com.msag.securityinfo.controller.data.SecurityInfoResponseDTO;
+import com.msag.securityinfo.controller.data.response.SecurityInfoResponseDTO;
 import com.msag.securityinfo.controller.utils.SecurityInfoMapper;
-import com.msag.securityinfo.generalnews.data.SecurityInfoData;
-import com.msag.securityinfo.generalnews.exception.SecurityInfoException;
-import com.msag.securityinfo.generalnews.service.GeneralNewsService;
+import com.msag.securityinfo.controller.data.internal.SecurityInfoData;
+import com.msag.securityinfo.common.exception.SecurityInfoException;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -28,7 +27,7 @@ import java.util.Objects;
 @RequiredArgsConstructor
 @Slf4j
 public class SecurityInfoController {
-    private final GeneralNewsService generalNewsService;
+    private final SecurityInfoService securityInfoService;
 
     @GetMapping("generalInfo")
     @Operation(summary = "Can be used to fetch general security info data")
@@ -41,7 +40,7 @@ public class SecurityInfoController {
     public ResponseEntity<SecurityInfoResponseDTO> getSecurityInfos(){
         try {
             log.info("[SecurityInfoController:getSecurityInfos] Start to fetch security infos");
-            final SecurityInfoData securityInfoData = this.generalNewsService.getSecurityInfoNews();
+            final SecurityInfoData securityInfoData = this.securityInfoService.getSecurityInfoNews();
             log.info("[SecurityInfoController:getSecurityInfos] Finished to fetch security infos: {}", securityInfoData);
 
             if(Objects.isNull(securityInfoData)){

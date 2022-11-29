@@ -1,4 +1,4 @@
-package com.msag.securityinfo.config;
+package com.msag.securityinfo.common.config;
 
 import io.swagger.v3.oas.models.info.Contact;
 import io.swagger.v3.oas.models.info.Info;
@@ -16,7 +16,6 @@ public class SwaggerConfig {
     public GroupedOpenApi webApi()
     {
         return GroupedOpenApi.builder().group("v1").pathsToMatch("/api/v1/**").build();
-
     }
 
     @Bean

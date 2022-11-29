@@ -23,6 +23,5 @@ http://localhost:8080/actuator/health
 
 ### Required Environment variables
 <ul>
-    <li><b>GENERAL_NEWS_PWD</b> Password to API Endpoint to fetch general news</li>
-    <li><b>VIDEO_NEWS_PWD</b> Password to API Endpoint to fetch video news</li>
+    <li><b>NEWS_PWD</b> Password to API Endpoint to fetch general news</li>
 </ul>

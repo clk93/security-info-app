@@ -1,4 +1,4 @@
-package com.msag.securityinfo.controller.data;
+package com.msag.securityinfo.controller.data.response;
 
 import lombok.Builder;
 import lombok.Data;
@@ -12,4 +12,6 @@ public class SecurityInfoNewsDTO {
     private final Instant date;
     private final String shortDescription;
     private final CategoryInfoDTO category;
+    private final String imageUrl;
+    private final SecurityInfoDetailDTO detailInfo;
 }

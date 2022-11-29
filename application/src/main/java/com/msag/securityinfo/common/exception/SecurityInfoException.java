@@ -1,4 +1,4 @@
-package com.msag.securityinfo.generalnews.exception;
+package com.msag.securityinfo.common.exception;
 
 public class SecurityInfoException extends Exception{
 
