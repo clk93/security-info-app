@@ -1,4 +1,4 @@
-package com.msag.securityinfo.controller.data.internal;
+package com.msag.securityinfo.data;
 
 import lombok.Builder;
 import lombok.Data;

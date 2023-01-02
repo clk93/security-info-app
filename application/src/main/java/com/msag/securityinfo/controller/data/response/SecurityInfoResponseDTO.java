@@ -9,5 +9,6 @@ import java.util.List;
 @Data
 public class SecurityInfoResponseDTO {
     private final List<SecurityInfoNewsDTO> infoNews;
+    private final SecurityVideoDataDTO videoData;
     private String message;
 }

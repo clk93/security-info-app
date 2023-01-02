@@ -1,10 +1,10 @@
 package com.msag.securityinfo.gateway.videonews.service;
 
 import com.msag.securityinfo.common.exception.VideoNewsException;
-import com.msag.securityinfo.controller.data.internal.SecurityInfoData;
+import com.msag.securityinfo.data.SecurityVideoInfoData;
 
 /**
- * Service to fetch general security informations
+ * Service to fetch general security information
  */
 @FunctionalInterface
 public interface VideoNewsService {
@@ -12,9 +12,9 @@ public interface VideoNewsService {
     /**
      * Get video news
      *
-     * @return SecurityInfoData {@link SecurityInfoData} Result containing details of security info
+     * @return SecurityVideoInfoData {@link SecurityVideoInfoData} Result containing details of security info videos
      * @throws VideoNewsException {@link VideoNewsException} Exception during fetch video news
      */
-    SecurityInfoData getVideoNews() throws VideoNewsException;
+    SecurityVideoInfoData getVideoData() throws VideoNewsException;
 
 }

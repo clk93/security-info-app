@@ -1,4 +1,4 @@
-package com.msag.securityinfo.controller.data.internal;
+package com.msag.securityinfo.data;
 
 import lombok.Builder;
 import lombok.Data;
@@ -14,5 +14,4 @@ public class SecurityInfoNews {
     private final CategoryInfo category;
     private final String imageUrl;
     private final SecurityInfoDetail infoDetail;
-
 }

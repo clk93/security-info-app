@@ -1,27 +1,45 @@
 package com.msag.securityinfo.gateway.generalnews;
 
-import com.msag.securityinfo.controller.data.internal.CategoryInfo;
-import com.msag.securityinfo.controller.data.internal.SecurityInfoDetail;
-import com.msag.securityinfo.controller.data.internal.SecurityInfoNews;
+import com.msag.securityinfo.common.exception.UnknownCategoryException;
+import com.msag.securityinfo.data.CategoryInfo;
+import com.msag.securityinfo.data.SecurityInfoDetail;
+import com.msag.securityinfo.data.SecurityInfoNews;
 import com.msag.securityinfo.gateway.generalnews.data.GeneralNewsResponseDTO;
 import com.msag.securityinfo.gateway.generalnews.data.ImageDTO;
+import com.msag.securityinfo.utils.Category;
+import com.msag.securityinfo.utils.CategoryUtil;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.CollectionUtils;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
+@Slf4j
 public final class GeneralNewsMapper {
 
     private GeneralNewsMapper() {
         // not used
     }
 
-    public static SecurityInfoNews mapToSecurityInfoNews(final GeneralNewsResponseDTO source){
+    public static SecurityInfoNews mapToSecurityInfoNews(final GeneralNewsResponseDTO source,
+                                                         final Map<Category, String> categoryUrlMap) {
+        Category category;
+        try {
+            category = Category.getCategory(source.getCategory());
+        } catch (UnknownCategoryException e) {
+            log.error("[GeneralNewsMapper:mapToSecurityInfoNews] Unknown category {}", e.getMessage());
+            category = null;
+        }
         return SecurityInfoNews.builder()
                 .title(source.getHeader())
                 .date(source.getPubDate())
-                .category(CategoryInfo.builder().name(source.getCategory()).build())
+                .category(Objects.nonNull(category) ? CategoryInfo.builder()
+                        .name(category)
+                        .iconUrl(categoryUrlMap.get(category))
+                        .build() : null)
                 .shortDescription(source.getSubheader())
                 .imageUrl(GeneralNewsMapper.getImageUrl(source.getImages()))
                 .infoDetail(GeneralNewsMapper.getGeneralNews(source))

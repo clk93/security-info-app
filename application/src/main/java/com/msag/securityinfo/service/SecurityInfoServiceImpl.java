@@ -1,21 +1,19 @@
-package com.msag.securityinfo.controller.service;
+package com.msag.securityinfo.service;
 
 import com.msag.securityinfo.common.exception.GeneralNewsException;
 import com.msag.securityinfo.common.exception.SecurityInfoException;
-import com.msag.securityinfo.controller.data.internal.CategoryInfo;
-import com.msag.securityinfo.controller.data.internal.SecurityInfoData;
-import com.msag.securityinfo.controller.data.internal.SecurityInfoNews;
-import com.msag.securityinfo.controller.utils.CategoryUtil;
+import com.msag.securityinfo.common.exception.VideoNewsException;
+import com.msag.securityinfo.data.SecurityInfoData;
+import com.msag.securityinfo.data.SecurityInfoNews;
+import com.msag.securityinfo.data.SecurityVideoInfoData;
 import com.msag.securityinfo.gateway.generalnews.service.GeneralNewsService;
 import com.msag.securityinfo.gateway.videonews.service.VideoNewsService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-import java.util.Map;
 
 @AllArgsConstructor
 @Service
@@ -31,27 +29,23 @@ public class SecurityInfoServiceImpl implements SecurityInfoService {
         final List<SecurityInfoNews> generalNews;
         try {
             generalNews = this.generalNewsService.getGeneralNews();
-            this.includeCategoryIcon(generalNews);
-            Collections.sort(generalNews, Comparator.comparing(SecurityInfoNews::getDate).reversed());
+            generalNews.sort(Comparator.comparing(SecurityInfoNews::getDate).reversed());
         } catch (GeneralNewsException e) {
             throw new SecurityInfoException(e.getMessage(), e);
         }
 
-        //ToDO: fetch video news and combine
+        final SecurityVideoInfoData videoData;
+        try{
+            videoData = this.videoNewsService.getVideoData();
+        }catch (VideoNewsException e){
+            throw new SecurityInfoException(e.getMessage(), e);
+        }
 
         log.debug("[SecurityInfoServiceImpl:getSecurityInfoNews] Finished to get security info news");
         return SecurityInfoData.builder()
                 .infoNews(generalNews)
+                .videoInfoData(videoData)
                 .build();
     }
 
-    private void includeCategoryIcon(List<SecurityInfoNews> generalNews) {
-        final Map<String, String> categoryUrlMap = CategoryUtil.getStaticCategoryNameIconMap();
-        generalNews.forEach(currentGeneralNews -> {
-            CategoryInfo currentCategory = currentGeneralNews.getCategory();
-            final String iconUrl = categoryUrlMap.get(currentCategory.getName());
-            currentCategory.setIconUrl(iconUrl);
-        });
-
-    }
 }

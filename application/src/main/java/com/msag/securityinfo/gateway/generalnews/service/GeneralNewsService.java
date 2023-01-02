@@ -1,7 +1,7 @@
 package com.msag.securityinfo.gateway.generalnews.service;
 
 import com.msag.securityinfo.common.exception.GeneralNewsException;
-import com.msag.securityinfo.controller.data.internal.SecurityInfoNews;
+import com.msag.securityinfo.data.SecurityInfoNews;
 
 import java.util.List;
 
