@@ -18,6 +18,14 @@ Java 11, Maven, Spring Boot 2
     <li>application - Application entry point to fetch information and details</li>
 </ul>
 
+### Api Documentation
+The provided REST API is documented via OpenAPI 3.0
+and JSON can be reached with url:
+http://localhost:8080/v3/api-docs/
+
+reach it with swagger-ui:
+http://localhost:8080/swagger-ui/index.html
+
 ### Health-Check
 http://localhost:8080/actuator/health
 
