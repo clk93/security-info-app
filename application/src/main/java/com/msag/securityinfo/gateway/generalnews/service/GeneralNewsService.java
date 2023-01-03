@@ -1,12 +1,12 @@
 package com.msag.securityinfo.gateway.generalnews.service;
 
 import com.msag.securityinfo.common.exception.GeneralNewsException;
-import com.msag.securityinfo.data.SecurityInfoNews;
+import com.msag.securityinfo.app.data.SecurityInfoNews;
 
 import java.util.List;
 
 /**
- * Service to fetch general security informations
+ * Service to fetch general security information
  */
 @FunctionalInterface
 public interface GeneralNewsService {

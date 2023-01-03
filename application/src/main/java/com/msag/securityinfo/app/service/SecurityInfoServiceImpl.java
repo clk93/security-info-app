@@ -1,11 +1,11 @@
-package com.msag.securityinfo.service;
+package com.msag.securityinfo.app.service;
 
 import com.msag.securityinfo.common.exception.GeneralNewsException;
 import com.msag.securityinfo.common.exception.SecurityInfoException;
 import com.msag.securityinfo.common.exception.VideoNewsException;
-import com.msag.securityinfo.data.SecurityInfoData;
-import com.msag.securityinfo.data.SecurityInfoNews;
-import com.msag.securityinfo.data.SecurityVideoInfoData;
+import com.msag.securityinfo.app.data.SecurityInfoData;
+import com.msag.securityinfo.app.data.SecurityInfoNews;
+import com.msag.securityinfo.app.data.SecurityVideoInfoData;
 import com.msag.securityinfo.gateway.generalnews.service.GeneralNewsService;
 import com.msag.securityinfo.gateway.videonews.service.VideoNewsService;
 import lombok.AllArgsConstructor;

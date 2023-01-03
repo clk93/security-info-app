@@ -1,6 +1,6 @@
-package com.msag.securityinfo.data;
+package com.msag.securityinfo.app.data;
 
-import com.msag.securityinfo.utils.Category;
+import com.msag.securityinfo.app.utils.Category;
 import lombok.Builder;
 import lombok.Data;
 

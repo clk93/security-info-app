@@ -1,13 +1,12 @@
 package com.msag.securityinfo.gateway.videonews.service;
 
 import com.msag.securityinfo.common.exception.VideoNewsException;
-import com.msag.securityinfo.data.SecurityInfoData;
-import com.msag.securityinfo.data.SecurityVideoInfoData;
+import com.msag.securityinfo.app.data.SecurityVideoInfoData;
 import com.msag.securityinfo.gateway.common.HttpConnectionProvider;
 import com.msag.securityinfo.gateway.videonews.VideoDataMapper;
 import com.msag.securityinfo.gateway.videonews.data.VideoDataResponseDTO;
-import com.msag.securityinfo.utils.Category;
-import com.msag.securityinfo.utils.CategoryUtil;
+import com.msag.securityinfo.app.utils.Category;
+import com.msag.securityinfo.app.utils.CategoryUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;

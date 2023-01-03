@@ -1,12 +1,12 @@
 package com.msag.securityinfo.gateway.generalnews.service;
 
 import com.msag.securityinfo.common.exception.GeneralNewsException;
-import com.msag.securityinfo.data.SecurityInfoNews;
+import com.msag.securityinfo.app.data.SecurityInfoNews;
 import com.msag.securityinfo.gateway.common.HttpConnectionProvider;
 import com.msag.securityinfo.gateway.generalnews.GeneralNewsMapper;
 import com.msag.securityinfo.gateway.generalnews.data.GeneralNewsResponseDTO;
-import com.msag.securityinfo.utils.Category;
-import com.msag.securityinfo.utils.CategoryUtil;
+import com.msag.securityinfo.app.utils.Category;
+import com.msag.securityinfo.app.utils.CategoryUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;

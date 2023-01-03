@@ -1,9 +1,9 @@
-package com.msag.securityinfo.utils;
+package com.msag.securityinfo.app.utils;
 
-import com.msag.securityinfo.controller.data.response.*;
-import com.msag.securityinfo.data.SecurityInfoData;
-import com.msag.securityinfo.data.SecurityInfoNews;
-import com.msag.securityinfo.data.SecurityVideoInfoData;
+import com.msag.securityinfo.controller.data.*;
+import com.msag.securityinfo.app.data.SecurityInfoData;
+import com.msag.securityinfo.app.data.SecurityInfoNews;
+import com.msag.securityinfo.app.data.SecurityVideoInfoData;
 
 import java.util.stream.Collectors;
 

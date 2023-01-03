@@ -1,7 +1,7 @@
-package com.msag.securityinfo.service;
+package com.msag.securityinfo.app.service;
 
 import com.msag.securityinfo.common.exception.SecurityInfoException;
-import com.msag.securityinfo.data.SecurityInfoData;
+import com.msag.securityinfo.app.data.SecurityInfoData;
 
 /**
  * Service to get all relevant information for securityInfo

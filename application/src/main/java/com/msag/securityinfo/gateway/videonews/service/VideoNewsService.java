@@ -1,7 +1,7 @@
 package com.msag.securityinfo.gateway.videonews.service;
 
 import com.msag.securityinfo.common.exception.VideoNewsException;
-import com.msag.securityinfo.data.SecurityVideoInfoData;
+import com.msag.securityinfo.app.data.SecurityVideoInfoData;
 
 /**
  * Service to fetch general security information

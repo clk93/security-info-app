@@ -1,4 +1,4 @@
-package com.msag.securityinfo.data;
+package com.msag.securityinfo.app.data;
 
 
 import lombok.Builder;

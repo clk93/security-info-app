@@ -1,4 +1,4 @@
-package com.msag.securityinfo.utils;
+package com.msag.securityinfo.app.utils;
 
 import com.msag.securityinfo.common.exception.UnknownCategoryException;
 

@@ -1,4 +1,4 @@
-package com.msag.securityinfo.controller.data.response;
+package com.msag.securityinfo.controller.data;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Builder;

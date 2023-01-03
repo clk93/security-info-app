@@ -1,13 +1,12 @@
 package com.msag.securityinfo.gateway.generalnews;
 
 import com.msag.securityinfo.common.exception.UnknownCategoryException;
-import com.msag.securityinfo.data.CategoryInfo;
-import com.msag.securityinfo.data.SecurityInfoDetail;
-import com.msag.securityinfo.data.SecurityInfoNews;
+import com.msag.securityinfo.app.data.CategoryInfo;
+import com.msag.securityinfo.app.data.SecurityInfoDetail;
+import com.msag.securityinfo.app.data.SecurityInfoNews;
 import com.msag.securityinfo.gateway.generalnews.data.GeneralNewsResponseDTO;
 import com.msag.securityinfo.gateway.generalnews.data.ImageDTO;
-import com.msag.securityinfo.utils.Category;
-import com.msag.securityinfo.utils.CategoryUtil;
+import com.msag.securityinfo.app.utils.Category;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.CollectionUtils;
 

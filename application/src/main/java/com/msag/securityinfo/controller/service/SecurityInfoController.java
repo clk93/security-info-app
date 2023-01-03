@@ -1,10 +1,10 @@
 package com.msag.securityinfo.controller.service;
 
-import com.msag.securityinfo.controller.data.response.SecurityInfoResponseDTO;
-import com.msag.securityinfo.utils.SecurityInfoMapper;
-import com.msag.securityinfo.data.SecurityInfoData;
+import com.msag.securityinfo.controller.data.SecurityInfoResponseDTO;
+import com.msag.securityinfo.app.utils.SecurityInfoMapper;
+import com.msag.securityinfo.app.data.SecurityInfoData;
 import com.msag.securityinfo.common.exception.SecurityInfoException;
-import com.msag.securityinfo.service.SecurityInfoService;
+import com.msag.securityinfo.app.service.SecurityInfoService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;

@@ -3,6 +3,7 @@ management.endpoints:
  health.show-details: "always"
 
 com.msag.securityInfo:
+ importCron: "0 0 * * * *"
  gateway:
   userName: "aspirant"
   pwd: ${NEWS_PWD}
@@ -10,6 +11,7 @@ com.msag.securityInfo:
    url: "https://news-api-78bda.web.app/general-news"
   videoNews:
    url: "https://news-api-78bda.web.app/video-news"
+
 
 
 

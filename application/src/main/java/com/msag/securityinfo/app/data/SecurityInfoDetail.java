@@ -1,9 +1,8 @@
-package com.msag.securityinfo.data;
+package com.msag.securityinfo.app.data;
 
 import lombok.Builder;
 import lombok.Data;
 
-import java.time.Instant;
 import java.util.List;
 
 @Data

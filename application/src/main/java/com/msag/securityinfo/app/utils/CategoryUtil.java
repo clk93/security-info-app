@@ -1,12 +1,13 @@
-package com.msag.securityinfo.utils;
+package com.msag.securityinfo.app.utils;
 
-import java.util.HashMap;
+import java.util.EnumMap;
 import java.util.Map;
 
-import static com.msag.securityinfo.utils.Category.*;
+import static com.msag.securityinfo.app.utils.Category.*;
 
 
 public final class CategoryUtil {
+
     private CategoryUtil() {
         // not used
     }
@@ -15,7 +16,7 @@ public final class CategoryUtil {
      * Map containing name of category and url of it's icon
      */
     public static Map<Category, String> getStaticCategoryNameIconMap() {
-        final Map<Category, String> enumMap = new HashMap<>();
+        final EnumMap<Category, String> enumMap = new EnumMap<>(Category.class);
         enumMap.put(MOBILE_DEVICES, "https://staging-probeapi.mobile-software.ag/aufgabe-backend/assets/Mobile-Geraete.png");
         enumMap.put(PHISHING, "https://staging-probeapi.mobile-software.ag/aufgabe-backend/assets/phishing.png");
         enumMap.put(GENERAL, "https://staging-probeapi.mobile-software.ag/aufgabe-backend/assets/Allgemein.png");

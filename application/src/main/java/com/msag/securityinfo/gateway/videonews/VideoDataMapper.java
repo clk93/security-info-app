@@ -1,11 +1,11 @@
 package com.msag.securityinfo.gateway.videonews;
 
-import com.msag.securityinfo.data.CategoryInfo;
-import com.msag.securityinfo.data.SecurityVideoInfoData;
-import com.msag.securityinfo.data.VideoData;
+import com.msag.securityinfo.app.data.CategoryInfo;
+import com.msag.securityinfo.app.data.SecurityVideoInfoData;
+import com.msag.securityinfo.app.data.VideoData;
 import com.msag.securityinfo.gateway.videonews.data.VideoDataResponseDTO;
 import com.msag.securityinfo.gateway.videonews.data.VideoEntryDTO;
-import com.msag.securityinfo.utils.Category;
+import com.msag.securityinfo.app.utils.Category;
 
 import java.util.Map;
 import java.util.stream.Collectors;
