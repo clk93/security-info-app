@@ -24,10 +24,12 @@ public class ResourceServerConfig
                                 "/v3/api-docs/**",
                                 "/webjars/**",
                                 "/swagger-ui/index.html",
-                                "/api/v1/**")
+                                "/api/v1/**",
+                                "/h2-console/**")
                         .permitAll()
                         .anyRequest()
                         .authenticated())
+                .headers().frameOptions().sameOrigin().and()
                 .cors().disable()
                 .csrf().disable()
                 .build();

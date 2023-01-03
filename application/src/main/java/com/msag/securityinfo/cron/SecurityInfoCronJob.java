@@ -9,6 +9,7 @@ import com.msag.securityinfo.gateway.generalnews.service.GeneralNewsService;
 import com.msag.securityinfo.gateway.videonews.service.VideoNewsService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import net.javacrumbs.shedlock.core.SchedulerLock;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
@@ -25,6 +26,7 @@ public class SecurityInfoCronJob {
     // CronExpression: second, minute, hour, day of the month, month, day of the week
     // https://spring.io/blog/2020/11/10/new-in-spring-5-3-improved-cron-expressions
     @Scheduled(cron = "${com.msag.securityInfo.importCron}")
+    @SchedulerLock(name = "SecurityInfoCronJob_startImport")
     public void startImport() throws ImportException {
         this.handleInfoNews();
         this.handleVideoData();

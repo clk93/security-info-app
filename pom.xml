@@ -27,6 +27,12 @@
         <springdoc-openapi-ui.version>1.6.6</springdoc-openapi-ui.version>
         <commons-text.version>1.10.0</commons-text.version>
         <lombock-verion>1.18.24</lombock-verion>
+        <shedlock-spring.version>2.2.0</shedlock-spring.version>
+        <shedlock-provider-jdbc-template.version>2.2.0</shedlock-provider-jdbc-template.version>
+        <spring-boot-starter-data-jpa.version>2.7.4</spring-boot-starter-data-jpa.version>
+        <flyway-core.version>9.10.2</flyway-core.version>
+        <classgraph.version>4.8.138</classgraph.version>
+        <h2.version>1.4.190</h2.version>
     </properties>
 
     <dependencyManagement>
@@ -37,15 +43,58 @@
                 <artifactId>commons-text</artifactId>
                 <version>${commons-text.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>io.github.classgraph</groupId>
+                <artifactId>classgraph</artifactId>
+                <version>${classgraph.version}</version>
+            </dependency>
+
             <dependency>
                 <groupId>org.springdoc</groupId>
                 <artifactId>springdoc-openapi-ui</artifactId>
+                <exclusions>
+                    <exclusion>
+                        <groupId>io.github.classgraph</groupId>
+                        <artifactId>classgraph</artifactId>
+                    </exclusion>
+                </exclusions>
                 <version>${springdoc-openapi-ui.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
                 <version>${lombock-verion}</version>
+            </dependency>
+
+            <!-- Shedlock dependency -->
+            <dependency>
+                <groupId>net.javacrumbs.shedlock</groupId>
+                <artifactId>shedlock-spring</artifactId>
+                <version>${shedlock-spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>net.javacrumbs.shedlock</groupId>
+                <artifactId>shedlock-provider-jdbc-template</artifactId>
+                <version>${shedlock-provider-jdbc-template.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.h2database</groupId>
+                <artifactId>h2</artifactId>
+                <version>${h2.version}</version>
+            </dependency>
+
+            <!-- Dependency for RDB usage and migration -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-jpa</artifactId>
+                <version>${spring-boot-starter-data-jpa.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.flywaydb</groupId>
+                <artifactId>flyway-core</artifactId>
+                <version>${flyway-core.version}</version>
             </dependency>
         </dependencies>
 

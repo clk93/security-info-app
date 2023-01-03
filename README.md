@@ -29,6 +29,10 @@ http://localhost:8080/swagger-ui/index.html
 ### Health-Check
 http://localhost:8080/actuator/health
 
+### Database
+For local development H2 is used;
+Start application and connect to H2 via http://localhost:8080/h2-console/
+
 ### Required Environment variables
 <ul>
     <li><b>NEWS_PWD</b> Password to API Endpoint to fetch general news</li>

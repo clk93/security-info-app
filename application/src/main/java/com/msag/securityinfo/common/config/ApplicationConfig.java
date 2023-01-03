@@ -11,12 +11,14 @@ import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
+import com.msag.securityinfo.Application;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.jackson.Jackson2ObjectMapperBuilderCustomizer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 import java.time.LocalDate;
@@ -26,6 +28,7 @@ import java.time.format.DateTimeFormatter;
 @Configuration
 @EnableScheduling
 @ComponentScan()
+@EnableJpaRepositories(basePackageClasses = Application.class)
 public class ApplicationConfig
 {
     private static final String DATE_FORMAT = "yyyy-MM-dd";
@@ -60,4 +63,5 @@ public class ApplicationConfig
                 .addModule(new Jdk8Module())
                 .build();
     }
+
 }
