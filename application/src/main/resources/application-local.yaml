@@ -1,7 +1,7 @@
 spring:
  datasource:
   driverClassName: org.h2.Driver
-  url: jdbc:h2:mem:securityInfo;INIT=CREATE SCHEMA IF NOT EXISTS shedlock;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+  url: jdbc:h2:mem:securityInfo
   username: test
   password: test
  h2:
